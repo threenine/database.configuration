@@ -1,3 +1,3 @@
 # Threenine Database Configuration
 
-Common configurations for Kingsbridge Microservice Entity Framework databases.
+Common configurations for Microservice Entity Framework databases.
