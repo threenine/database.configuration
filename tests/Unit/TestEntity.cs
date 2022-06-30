@@ -2,7 +2,7 @@
 
 namespace Unit.Tests;
 
-public class TestEntity : BaseEntity
+public class TestEntity : ValueListEntity
 {
-    public string Name { get; set; }
+  
 }

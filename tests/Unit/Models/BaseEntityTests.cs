@@ -11,7 +11,7 @@ public class BaseEntityTests
     [InlineData("Id", typeof(Guid))]
     [InlineData("Created", typeof(DateTime))]
     [InlineData("Modified", typeof(DateTime))]
-    [InlineData("Active", typeof(bool))]
+    [InlineData("Active", typeof(bool?))]
     public void Should_have_base_fields_defined(string name, Type type)
     {
         var testClass = typeof(BaseEntity);
