@@ -81,7 +81,7 @@ Task("Pack")
         OutputDirectory = "./.artifacts",
         MSBuildSettings = new DotNetMSBuildSettings()
                         .WithProperty("PackageVersion", version)
-                        .WithProperty("Copyright", $"© Copyright Kingsbridge {DateTime.Now.Year}")
+                        .WithProperty("Copyright", $"© Copyright Threenine.co.uk {DateTime.Now.Year}")
                         .WithProperty("Version", version)
     };
     
@@ -93,8 +93,7 @@ Task("Pack")
   .IsDependentOn("Pack")
   .Does(context => {
   
-   if (BuildSystem.BitbucketPipelines.IsRunningOnBitbucketPipelines)
-   {
+  
     foreach(var file in GetFiles("./.artifacts/*.nupkg"))
      {
        Information("Publishing {0}...", file.GetFilename().FullPath);
@@ -102,7 +101,7 @@ Task("Pack")
              ApiKey = context.EnvironmentVariable("NUGET_API_KEY"),
              Source = "https://api.nuget.org/v3/index.json"
        });
-      }
+      
    }
 });
 
