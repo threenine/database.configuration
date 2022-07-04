@@ -13,8 +13,7 @@ public abstract class ValueListTypeConfiguration<TEntity> : IEntityTypeConfigura
         builder.Property(e => e.Id)
             .HasColumnName(nameof(BaseEntity.Id).ToLower())
             .IsRequired()
-            .ValueGeneratedOnAdd()
-            .HasDefaultValueSql("newid()");
+            .ValueGeneratedOnAdd();
 
         builder.Property(x => x.Name)
             .HasColumnName(nameof(ValueListEntity.Name).ToLower())
@@ -23,21 +22,15 @@ public abstract class ValueListTypeConfiguration<TEntity> : IEntityTypeConfigura
         
 
         builder.Property(e => e.Created)
-            .HasColumnType("datetime")
-            .HasColumnName(nameof(BaseEntity.Created).ToLower())
-            .ValueGeneratedOnAdd()
-            .HasDefaultValueSql("getdate()");
+             .HasColumnName(nameof(BaseEntity.Created).ToLower())
+            .ValueGeneratedOnAdd();
             
         builder.Property(e => e.Modified)
-            .HasColumnType("datetime")
-            .HasColumnName(nameof(BaseEntity.Modified).ToLower())
-            .ValueGeneratedOnUpdate()
-            .HasDefaultValueSql("getdate()");
+             .HasColumnName(nameof(BaseEntity.Modified).ToLower())
+            .ValueGeneratedOnUpdate();
         
         builder.Property(e => e.Active)
             .HasColumnName(nameof(BaseEntity.Active).ToLower())
-            .ValueGeneratedOnAdd()
-            .HasColumnType("bit")
-            .HasDefaultValueSql("((1))");
+            .ValueGeneratedOnAdd();
     }
 }

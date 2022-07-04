@@ -92,16 +92,17 @@ Task("Pack")
  Task("Publish")
   .IsDependentOn("Pack")
   .Does(context => {
-  
-  
-    foreach(var file in GetFiles("./.artifacts/*.nupkg"))
+     if (BuildSystem.GitHubActions.IsRunningOnGitHubActions)
      {
-       Information("Publishing {0}...", file.GetFilename().FullPath);
-       DotNetNuGetPush(file, new DotNetNuGetPushSettings {
-             ApiKey = context.EnvironmentVariable("NUGET_API_KEY"),
-             Source = "https://api.nuget.org/v3/index.json"
-       });
-      
+  
+        foreach(var file in GetFiles("./.artifacts/*.nupkg"))
+        {
+           Information("Publishing {0}...", file.GetFilename().FullPath);
+            DotNetNuGetPush(file, new DotNetNuGetPushSettings {
+                 ApiKey = context.EnvironmentVariable("NUGET_API_KEY"),
+                 Source = "https://api.nuget.org/v3/index.json"
+            });
+        }
    }
 });
 
