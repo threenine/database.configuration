@@ -1,10 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Threenine.Models;
 
-namespace Threenine.Configurations;
+namespace Threenine.Configurations.PostgreSql;
 
-public abstract class BaseEntityTypeConfiguration<TEntity> : IEntityTypeConfiguration<TEntity> where TEntity : BaseEntity
+public abstract class ValueListTypeConfiguration<TEntity> : IEntityTypeConfiguration<TEntity> where TEntity : ValueListEntity
 {
     public virtual void Configure(EntityTypeBuilder<TEntity> builder)
     {
@@ -12,21 +12,28 @@ public abstract class BaseEntityTypeConfiguration<TEntity> : IEntityTypeConfigur
         
         builder.Property(e => e.Id)
             .HasColumnName(nameof(BaseEntity.Id).ToLower())
+            .HasColumnType(ColumnTypes.UniqueIdentifier)
+            .HasDefaultValueSql(PostgreExtensions.UUIDAlgorithm)
             .IsRequired()
             .ValueGeneratedOnAdd();
 
         builder.Property(e => e.Created)
-            .HasColumnType("datetime")
+            .HasColumnType(ColumnTypes.Timestamp)
             .HasColumnName(nameof(BaseEntity.Created).ToLower())
             .ValueGeneratedOnAdd();
             
         builder.Property(e => e.Modified)
-            .HasColumnType("datetime")
+            .HasColumnType(ColumnTypes.Timestamp)
             .HasColumnName(nameof(BaseEntity.Modified).ToLower())
             .ValueGeneratedOnUpdate();
+
+        builder.Property(x => x.Name)
+            .HasColumnName(nameof(ValueListEntity.Name).ToLower())
+            .HasColumnType(ColumnTypes.Varchar)
+            .IsRequired()
+            .HasMaxLength(150);
         
-        builder.Property(e => e.Active)
-            .HasColumnName(nameof(BaseEntity.Active).ToLower())
-            .ValueGeneratedOnAdd();
+
+       
     }
 }
