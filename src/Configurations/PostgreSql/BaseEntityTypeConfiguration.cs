@@ -29,6 +29,7 @@ public abstract class BaseEntityTypeConfiguration<TEntity> : IEntityTypeConfigur
         
         builder.Property(e => e.Active)
             .HasColumnName(nameof(BaseEntity.Active).ToLower())
+            .HasDefaultValue(true)
             .ValueGeneratedOnAdd();
     }
 }
