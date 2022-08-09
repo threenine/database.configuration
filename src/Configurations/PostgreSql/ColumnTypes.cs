@@ -6,7 +6,7 @@ public static class ColumnTypes
     public const string Varchar = "varchar";
     public const string Text = "text";
     public const string Date = "date";
-    public const string Timestamp = "timestamp";
+    public const string Timestamp = "TimestampTz";
     public const string Real = "real";
     public const string Double = "double";
     public const string SmallInt = "smallint";
