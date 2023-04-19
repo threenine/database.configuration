@@ -12,9 +12,8 @@ public abstract class ValueListTypeConfiguration<TEntity> : IEntityTypeConfigura
         
         builder.Property(e => e.Id)
             .HasColumnName(nameof(BaseEntity.Id).ToLower())
-            .HasColumnType(ColumnTypes.Integer)
-            .HasDefaultValueSql(PostgreExtensions.UUIDAlgorithm)
-            .IsRequired()
+             .HasColumnType(ColumnTypes.Integer)
+             .IsRequired()
             .ValueGeneratedOnAdd();
       
         builder.Property(x => x.Name)
