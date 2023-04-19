@@ -22,8 +22,16 @@ public abstract class ValueListTypeConfiguration<TEntity> : IEntityTypeConfigura
             .IsRequired()
             .HasMaxLength(150);
         
+        builder.HasIndex(x => x.Name).IsUnique();
+        
+        builder.Property(x => x.Description)
+            .HasColumnType(ColumnTypes.NVarchar)
+            .HasColumnName(nameof(ValueListEntity.Description).ToLower())
+            .HasMaxLength(150);
+        
         builder.Property(e => e.Active)
             .HasColumnType(ColumnTypes.Boolean)
+            .HasDefaultValue(true)
             .HasColumnName(nameof(ValueListEntity.Active).ToLower())
             .ValueGeneratedOnAdd();
     }
