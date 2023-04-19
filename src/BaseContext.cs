@@ -40,19 +40,35 @@ public abstract class BaseContext<T> : DbContext where T : DbContext
         switch (entry.State)
         {
             case EntityState.Added:
-                ((BaseEntity)entry.Entity).Created = DateTime.UtcNow;
-                ((BaseEntity)entry.Entity).Modified = DateTime.UtcNow;
+                if (entry.Entity is BaseEntity)
+                {
+                    ((BaseEntity)entry.Entity).Created = DateTime.UtcNow;
+                    ((BaseEntity)entry.Entity).Modified = DateTime.UtcNow;
+                }
+
                 break;
             case EntityState.Modified:
-                ((BaseEntity)entry.Entity).Modified = DateTime.UtcNow;
+                if (entry.Entity is BaseEntity)
+                {
+                    ((BaseEntity)entry.Entity).Modified = DateTime.UtcNow;
+                }
+               
                 break;
             case EntityState.Detached:
-                ((BaseEntity)entry.Entity).Modified = DateTime.UtcNow;
+                if (entry.Entity is BaseEntity)
+                {
+                    ((BaseEntity)entry.Entity).Modified = DateTime.UtcNow;
+                }
+                
                 break;
             case EntityState.Unchanged:
             case EntityState.Deleted:
             default:
-                ((BaseEntity)entry.Entity).Modified = DateTime.UtcNow;
+                if (entry.Entity is BaseEntity)
+                {
+                    ((BaseEntity)entry.Entity).Modified = DateTime.UtcNow;
+                }
+               
                 break;
         }
     }

@@ -11,26 +11,20 @@ public abstract class ValueListTypeConfiguration<TEntity> : IEntityTypeConfigura
         builder.HasKey(x => x.Id);
         
         builder.Property(e => e.Id)
-            .HasColumnName(nameof(BaseEntity.Id).ToLower())
+            .HasColumnName(nameof(ValueListEntity.Id).ToLower())
+            .HasColumnType(ColumnTypes.Integer)
             .IsRequired()
             .ValueGeneratedOnAdd();
 
         builder.Property(x => x.Name)
+            .HasColumnType(ColumnTypes.NVarchar)
             .HasColumnName(nameof(ValueListEntity.Name).ToLower())
             .IsRequired()
             .HasMaxLength(150);
         
-
-        builder.Property(e => e.Created)
-             .HasColumnName(nameof(BaseEntity.Created).ToLower())
-            .ValueGeneratedOnAdd();
-            
-        builder.Property(e => e.Modified)
-             .HasColumnName(nameof(BaseEntity.Modified).ToLower())
-            .ValueGeneratedOnUpdate();
-        
         builder.Property(e => e.Active)
-            .HasColumnName(nameof(BaseEntity.Active).ToLower())
+            .HasColumnType(ColumnTypes.Boolean)
+            .HasColumnName(nameof(ValueListEntity.Active).ToLower())
             .ValueGeneratedOnAdd();
     }
 }

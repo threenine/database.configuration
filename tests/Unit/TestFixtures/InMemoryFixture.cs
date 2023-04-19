@@ -21,6 +21,7 @@ public class InMemoryFixture : IDisposable
         context.Database.EnsureCreated();
 
         context.TestEntities.Add(new TestEntity { Name = "Test Entity" });
+        context.TestValueEntities.Add(new TestValueListEntity { Name = "Test Value Entity" });
         context.SaveChanges();
         return context;
     }

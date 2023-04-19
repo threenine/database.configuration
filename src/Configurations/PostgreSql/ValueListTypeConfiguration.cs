@@ -12,26 +12,24 @@ public abstract class ValueListTypeConfiguration<TEntity> : IEntityTypeConfigura
         
         builder.Property(e => e.Id)
             .HasColumnName(nameof(BaseEntity.Id).ToLower())
-            .HasColumnType(ColumnTypes.UniqueIdentifier)
+            .HasColumnType(ColumnTypes.Integer)
             .HasDefaultValueSql(PostgreExtensions.UUIDAlgorithm)
             .IsRequired()
             .ValueGeneratedOnAdd();
-
-        builder.Property(e => e.Created)
-            .HasColumnType(ColumnTypes.Timestamp)
-            .HasColumnName(nameof(BaseEntity.Created).ToLower())
-            .ValueGeneratedOnAdd();
-            
-        builder.Property(e => e.Modified)
-            .HasColumnType(ColumnTypes.Timestamp)
-            .HasColumnName(nameof(BaseEntity.Modified).ToLower())
-            .ValueGeneratedOnUpdate();
-
+      
         builder.Property(x => x.Name)
             .HasColumnName(nameof(ValueListEntity.Name).ToLower())
             .HasColumnType(ColumnTypes.Varchar)
             .IsRequired()
             .HasMaxLength(150);
+        
+        builder.Property(x => x.Description)
+            .HasColumnName(nameof(ValueListEntity.Description).ToLower())
+            .HasColumnType(ColumnTypes.Varchar)
+            .IsRequired()
+            .HasMaxLength(150);
+        
+        builder.HasIndex(x => x.Name).IsUnique();
         
 
        

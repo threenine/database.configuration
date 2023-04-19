@@ -1,8 +1,9 @@
-﻿using Threenine.Models;
+using Threenine.Models;
 
 namespace Unit.Tests;
 
-public class TestEntity : ValueListEntity
+public class TestEntity : BaseEntity
 {
-  
+    public string Name { get; set; }
+    
 }

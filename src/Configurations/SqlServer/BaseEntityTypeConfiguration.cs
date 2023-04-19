@@ -11,6 +11,7 @@ public abstract class BaseEntityTypeConfiguration<TEntity> : IEntityTypeConfigur
         builder.HasKey(x => x.Id);
         
         builder.Property(e => e.Id)
+            .HasColumnType(ColumnTypes.UniqueIdentifier)
             .HasColumnName(nameof(BaseEntity.Id).ToLower())
             .IsRequired()
             .ValueGeneratedOnAdd();

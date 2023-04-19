@@ -4,11 +4,11 @@ using Xunit;
 
 namespace Unit.Tests;
 
-public class ContextTests : IClassFixture<InMemoryFixture>
+public class ContextBaseEntityTests : IClassFixture<InMemoryFixture>
 {
     private readonly InMemoryFixture _fixture;
 
-    public ContextTests(InMemoryFixture fixture)
+    public ContextBaseEntityTests(InMemoryFixture fixture)
     {
         _fixture = fixture;
         _fixture.Context.Database.EnsureCreated();
