@@ -9,13 +9,13 @@ public abstract class BaseContext<T> : DbContext where T : DbContext
     protected BaseContext(DbContextOptions<T> options) : base(options)
     {
       
-        ChangeTracker.StateChanged += ChangeTracker_StateChanged;
+        base.ChangeTracker.StateChanged += ChangeTracker_StateChanged;
     }
     public override int SaveChanges()
     {
     
        AuditDates(ChangeTracker.Entries()
-            .Where(E => E.State is EntityState.Added or EntityState.Modified or EntityState.Detached)
+            .Where(e => e.State is EntityState.Added or EntityState.Modified or EntityState.Detached)
             .ToList());
         
         return base.SaveChanges();

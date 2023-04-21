@@ -17,12 +17,12 @@ public abstract class BaseEntityTypeConfiguration<TEntity> : IEntityTypeConfigur
             .ValueGeneratedOnAdd();
 
         builder.Property(e => e.Created)
-            .HasColumnType("datetime")
+            .HasColumnType(ColumnTypes.DateTime)
             .HasColumnName(nameof(BaseEntity.Created).ToLower())
             .ValueGeneratedOnAdd();
             
         builder.Property(e => e.Modified)
-            .HasColumnType("datetime")
+            .HasColumnType(ColumnTypes.DateTime)
             .HasColumnName(nameof(BaseEntity.Modified).ToLower())
             .ValueGeneratedOnUpdate();
         
