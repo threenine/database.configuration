@@ -20,7 +20,7 @@ public abstract class ValueListTypeConfiguration<TEntity> : IEntityTypeConfigura
             .HasColumnType(ColumnTypes.NVarchar)
             .HasColumnName(nameof(ValueListEntity.Name).ToLower())
             .IsRequired()
-            .HasMaxLength(150);
+            .HasMaxLength(75);
         
         builder.HasIndex(x => x.Name).IsUnique();
         

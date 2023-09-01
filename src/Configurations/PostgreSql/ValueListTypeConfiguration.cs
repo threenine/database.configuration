@@ -11,7 +11,7 @@ public abstract class ValueListTypeConfiguration<TEntity> : IEntityTypeConfigura
         builder.HasKey(x => x.Id);
         
         builder.Property(e => e.Id)
-            .HasColumnName(nameof(BaseEntity.Id).ToLower())
+            .HasColumnName(nameof(ValueListEntity.Id).ToLower())
              .HasColumnType(ColumnTypes.Integer)
              .IsRequired()
             .ValueGeneratedOnAdd();
@@ -20,7 +20,7 @@ public abstract class ValueListTypeConfiguration<TEntity> : IEntityTypeConfigura
             .HasColumnName(nameof(ValueListEntity.Name).ToLower())
             .HasColumnType(ColumnTypes.Varchar)
             .IsRequired()
-            .HasMaxLength(150);
+            .HasMaxLength(75);
         
         builder.Property(x => x.Description)
             .HasColumnName(nameof(ValueListEntity.Description).ToLower())
