@@ -4,7 +4,7 @@
 <PropertyGroup>
     <Authors>threenine.co.uk</Authors>
     <TargetFramework>net7.0</TargetFramework>
-    <Title>Threenine Database Configuration</Title>
+    <Title>Threenine.Database.Configuration</Title>
     <Description>Provides an opinionated approach and tools </Description>
     <RepositoryType>git</RepositoryType>
     <PackageTags>bitcoin, lightning</PackageTags>
