@@ -4,6 +4,7 @@
         <IsPackable>true</IsPackable>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <LangVersion>latest</LangVersion>
+        <AssemblyName>Threenine.Database.Configuration</AssemblyName>
     </PropertyGroup>
 
     <ItemGroup>
