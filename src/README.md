@@ -1,20 +1,14 @@
-### Database configuration Helper
+### Threenine Database configuration Helper
 
-A helper to ease the configuration of Entity Framework Cire database projects when using the `IEntityTypeConfiguration` pattern.
+Provides a helper to ease the configuration of Entity Framework Code First database projects when using the 
+`IEntityTypeConfiguration` pattern. Offering an opinionated approach to relational database design patterns, with helper 
+classes to configure both Microsoft SQL Server and PostgreSQL databases, primarily because these are the two most common
+relational database engines used in the Enterprise Software solutions and typically what we use at Threenine.
 
-In most Enterprise Software solutions database schemas and database design patterns usually comprise of the [Star Schema](https://en.wikipedia.org/wiki/Star_schema) or [Snowflake Schema](https://en.wikipedia.org/wiki/Snowflake_schema) design patterns.
 
-```mermaid
-erDiagram
-    CUSTOMER }|..|{ DELIVERY-ADDRESS : has
-    CUSTOMER ||--o{ ORDER : places
-    CUSTOMER ||--o{ INVOICE : "liable for"
-    DELIVERY-ADDRESS ||--o{ ORDER : receives
-    INVOICE ||--|{ ORDER : covers
-    ORDER ||--|{ ORDER-ITEM : includes
-    PRODUCT-CATEGORY ||--|{ PRODUCT : contains
-    PRODUCT ||--o{ ORDER-ITEM : "ordered in"
-```
+
+
+
 
    
 

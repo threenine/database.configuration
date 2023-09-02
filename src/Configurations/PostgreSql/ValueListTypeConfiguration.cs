@@ -8,7 +8,7 @@ public abstract class ValueListTypeConfiguration<TEntity> : IEntityTypeConfigura
 {
     public virtual void Configure(EntityTypeBuilder<TEntity> builder)
     {
-        builder.ToTable(typeof(TEntity).Name.ToLower());
+        builder.ToTable(typeof(TEntity).Name.ToSnakeCase());
         
         builder.HasKey(x => x.Id);
         

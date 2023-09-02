@@ -1,4 +1,6 @@
-﻿using Shouldly;
+﻿using System.Linq;
+using System.Threading.Tasks;
+using Shouldly;
 using Unit.Tests.TestFixtures;
 using Xunit;
 
@@ -21,7 +23,6 @@ public class ContextValueEntityTests : IClassFixture<InMemoryFixture>
         var save = await repo.AddAsync(new TestValueListEntity { Name = "test" });
   
         await  _fixture.Context.SaveChangesAsync();
-        
       
        save.Entity.Id.ShouldBeOfType<int>();
     }

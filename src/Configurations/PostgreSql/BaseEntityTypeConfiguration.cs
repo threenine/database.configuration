@@ -1,14 +1,15 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Threenine.Configurations.PostgreSql;
 using Threenine.Models;
 
-namespace Threenine.Configurations.PostgreSql;
+namespace Threenine.Database.Configuration.PostgreSql;
 
 public abstract class BaseEntityTypeConfiguration<TEntity> : IEntityTypeConfiguration<TEntity> where TEntity : BaseEntity
 {
     public virtual void Configure(EntityTypeBuilder<TEntity> builder)
     {
-        builder.ToTable(typeof(TEntity).Name.ToLower());
+        builder.ToTable(typeof(TEntity).Name.ToSnakeCase());
         builder.HasKey(x => x.Id);
         
         builder.Property(e => e.Id)

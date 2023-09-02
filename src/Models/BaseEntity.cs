@@ -1,4 +1,6 @@
-﻿namespace Threenine.Models;
+﻿using System;
+
+namespace Threenine.Models;
 
 public abstract class BaseEntity
 {

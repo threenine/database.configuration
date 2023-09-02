@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Threenine.Database.Configuration", "src\Threenine.Database.Configuration.csproj", "{7CFA795D-63F9-4C5C-B427-7282921DC128}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configuration", "src\Configuration.csproj", "{7CFA795D-63F9-4C5C-B427-7282921DC128}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{F5F29E25-ED8F-4A47-BC35-DDA352EC02DE}"
 EndProject
