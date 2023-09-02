@@ -8,6 +8,7 @@ public abstract class BaseEntityTypeConfiguration<TEntity> : IEntityTypeConfigur
 {
     public virtual void Configure(EntityTypeBuilder<TEntity> builder)
     {
+        builder.ToTable(nameof(TEntity).ToLower());
         builder.HasKey(x => x.Id);
         
         builder.Property(e => e.Id)
