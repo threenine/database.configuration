@@ -3,14 +3,14 @@
 <Project>
 <PropertyGroup>
     <Authors>threenine.co.uk</Authors>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Title>Threenine.Database.Configuration</Title>
     <Description>Provides an opinionated approach and tools </Description>
     <RepositoryType>git</RepositoryType>
     <PackageTags>bitcoin, lightning</PackageTags>
     <RepositoryUrl>https://github.com/threenine/paybolt</RepositoryUrl>
     <Copyright>Copyright © $([System.DateTime]::Now.ToString("yyyy")) Three Nine Consulting Limited</Copyright>
-    <PackageProjectUrl>https://www.threenine.co.uk/paybolt</PackageProjectUrl>
+    <PackageProjectUrl>https://www.threenine.co.uk</PackageProjectUrl>
     <license>https://github.com/threenine/database.configuration/blob/master/LICENSE</license>
     <PackageIcon>icon.png</PackageIcon>
     <Version></Version>
