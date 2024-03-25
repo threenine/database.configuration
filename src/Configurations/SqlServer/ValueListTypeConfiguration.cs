@@ -8,6 +8,7 @@ public abstract class ValueListTypeConfiguration<TEntity> : IEntityTypeConfigura
 {
     public void Configure(EntityTypeBuilder<TEntity> builder)
     {
+        builder.ToTable(typeof(TEntity).Name.ToSnakeCase());
         builder.HasKey(x => x.Id);
         
         builder.Property(e => e.Id)
