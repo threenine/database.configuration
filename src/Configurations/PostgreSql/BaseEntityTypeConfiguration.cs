@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Threenine.Configurations.PostgreSql;
+using Threenine.Database.Extensions;
 using Threenine.Models;
 
 namespace Threenine.Database.Configuration.PostgreSql;

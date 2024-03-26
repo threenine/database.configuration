@@ -1,7 +1,7 @@
-using Threenine;
+using Threenine.Database.Extensions;
 using Xunit;
 
-namespace Unit.Tests;
+namespace Unit.Tests.Extensions;
 
 public class StringExtensionTests
 {

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Threenine.Database.Extensions;
 using Threenine.Models;
 
 namespace Threenine.Configurations.SqlServer;
