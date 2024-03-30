@@ -16,5 +16,6 @@ public static class ColumnTypes
     public const string Serial = "serial";
     public const string BigSerial = "bigserial";
     public const string DateTimeOffSet = "timestamp with time zone";
-
+    public const string Json = "json";
+    public const string JsonB = "jsonb";
 }

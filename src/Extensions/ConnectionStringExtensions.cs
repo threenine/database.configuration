@@ -1,4 +1,5 @@
 using System;
+using System.Data;
 using System.Data.Common;
 using Threenine.Database.Exceptions;
 
@@ -16,11 +17,16 @@ public static class ConnectionStringExtensions
                 throw new DatabaseConfigurationException(ConfigurationErrors.DatabaseConnectionError);
       
             connection.Open();
-            return true;
+            if (connection.State == ConnectionState.Open)
+            {
+                connection.Close();
+                return true;  
+            }
         }
-        catch (Exception e)
+        catch (Exception)
         {
             throw new DatabaseConfigurationException(ConfigurationErrors.DatabaseConnectionError);
         }
+        return false;
     }
 }
