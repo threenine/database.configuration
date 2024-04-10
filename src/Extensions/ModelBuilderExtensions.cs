@@ -22,17 +22,6 @@ public static class ModelBuilderExtensions
             {
                 var tableName = entityType.GetTableName();
                 entityType.SetTableName(tableName.ToSnakeCase());
-
-                if (tableName is null) continue;
-
-                var columnName = property.GetColumnName(StoreObjectIdentifier.Table(tableName, null));
-                var columnNameDefault = property.GetDefaultColumnName(StoreObjectIdentifier.Table(tableName, null));
-
-                if (columnName is null || columnNameDefault is null) continue;
-
-                if (!columnName.Equals(columnNameDefault)) continue;
-                var columnNameBase = property.GetColumnName();
-                property.SetColumnName(columnNameBase.ToSnakeCase());
             }
         }
     }
